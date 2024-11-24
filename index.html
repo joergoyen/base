@@ -2,157 +2,205 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Zahlen-Buchstaben-Puzzle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4A90E2">
+    <title>PWA Mockup</title>
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiUFdBIE1vY2t1cCIsInNob3J0X25hbWUiOiJQV0EiLCJzdGFydF91cmwiOiIvIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZmZiIsInRoZW1lX2NvbG9yIjoiIzRBOTBFMiJ9">
     <style>
-        .game-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            margin-top: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            max-width: 400px;
+        body {
+            background-color: #f5f5f5;
         }
 
-        .cell {
-            width: 80px;
-            height: 80px;
-            border: 2px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
+        .header {
+            background: #4A90E2;
+            padding: 1rem;
+            color: white;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hamburger {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
             cursor: pointer;
-            background-color: #f0f0f0;
-            user-select: none;
+            z-index: 100;
         }
 
-        .cell:hover {
-            background-color: #e0e0e0;
+        .menu {
+            position: fixed;
+            right: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: white;
+            transition: 0.3s;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            padding-top: 4rem;
         }
 
-        .cell.clicked {
-            background-color: #90EE90;
+        .menu.active {
+            right: 0;
         }
 
-        .message {
-            margin-top: 20px;
-            font-size: 20px;
+        .menu a {
+            display: block;
+            padding: 1rem;
             color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
         }
 
-        .reset-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
+        .menu a:hover {
+            background: #f5f5f5;
+        }
+
+        .content {
+            padding: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 200px;
+            background: #ddd;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 0.25rem;
+        }
+
+        button {
+            background: #4A90E2;
             color: white;
             border: none;
-            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
             cursor: pointer;
         }
 
-        .reset-button:hover {
-            background-color: #45a049;
+        button:hover {
+            background: #357ABD;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <div class="grid"></div>
-        <div class="message"></div>
-        <button class="reset-button" style="display: none;">Neu starten</button>
+    <div class="header">
+        <h1>PWA Mockup</h1>
+        <div class="hamburger">☰</div>
     </div>
 
+    <nav class="menu">
+        <a href="#" data-page="home">Home</a>
+        <a href="#" data-page="impressum">Impressum</a>
+        <a href="#" data-page="kontakt">Kontakt</a>
+    </nav>
+
+    <main class="content">
+        <div id="home" class="page active">
+            <div class="hero-image">Platzhalterbild</div>
+            <p>Willkommen auf unserer Mockup-Seite! Dies ist ein Beispieltext, der zeigt, wie der Inhalt auf der Seite aussehen könnte. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <div id="impressum" class="page">
+            <h2>Impressum</h2>
+            <p>Angaben gemäß § 5 TMG</p>
+            <p>Max Mustermann<br>
+            Musterstraße 123<br>
+            12345 Musterstadt</p>
+            <p>Telefon: +49 (0) 123 44 55 66<br>
+            E-Mail: mustermann@beispiel.de</p>
+            <h3>Haftungsausschluss</h3>
+            <p>Die Inhalte dieser Seiten wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+        </div>
+
+        <div id="kontakt" class="page">
+            <div class="contact-form">
+                <h2>Kontakt</h2>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mail:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <button type="submit">Senden</button>
+            </div>
+        </div>
+    </main>
+
     <script>
-        const numberToLetter = {
-            '0': 'N',
-            '1': 'E',
-            '2': 'Y',
-            '3': 'O',
-            '4': 'A',
-            '5': 'B',
-            '6': 'C',
-            '7': 'D',
-            '8': 'F',
-            '9': 'G'
-        };
-
-        const targetWord = 'OYEN';
-        let clickedCells = new Set();
-        let currentWord = '';
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
+        // PWA Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(console.error);
         }
 
-        function createGrid() {
-            const grid = document.querySelector('.grid');
-            const numbers = shuffleArray([...Array(10)].map((_, i) => i));
-            const fillerChars = shuffleArray([...Array(6)].map((_, i) => String.fromCharCode(65 + i)));
-            const allCells = [...numbers, ...fillerChars];
-            
-            grid.innerHTML = '';
-            shuffleArray(allCells).forEach(value => {
-                const cell = document.createElement('div');
-                cell.className = 'cell';
-                cell.textContent = value;
-                cell.addEventListener('click', () => handleCellClick(cell, value));
-                grid.appendChild(cell);
+        // Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+        const menuLinks = document.querySelectorAll('.menu a');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Page Navigation
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute('data-page');
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+                menu.classList.remove('active');
             });
-        }
+        });
 
-        function handleCellClick(cell, value) {
-            if (cell.classList.contains('clicked') || typeof value !== 'number') return;
-
-            const letter = numberToLetter[value];
-            cell.textContent = letter;
-            cell.classList.add('clicked');
-            clickedCells.add(cell);
-            currentWord += letter;
-
-            checkProgress();
-        }
-
-        function checkProgress() {
-            const message = document.querySelector('.message');
-            const resetButton = document.querySelector('.reset-button');
-
-            if (clickedCells.size >= 4) {
-                if (currentWord.includes(targetWord)) {
-                    message.textContent = 'Gratulation! Du hast das Puzzle gelöst!';
-                    message.style.color = 'green';
-                    resetButton.style.display = 'block';
-                } else {
-                    message.textContent = 'Leider falsch. Versuche es noch einmal!';
-                    message.style.color = 'red';
-                    resetButton.style.display = 'block';
-                }
-            }
-        }
-
-        function resetGame() {
-            clickedCells.clear();
-            currentWord = '';
-            const message = document.querySelector('.message');
-            const resetButton = document.querySelector('.reset-button');
-            message.textContent = '';
-            resetButton.style.display = 'none';
-            createGrid();
-        }
-
-        // Initialisierung
-        document.querySelector('.reset-button').addEventListener('click', resetGame);
-        createGrid();
+        // Simple Form Handler
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Formular wurde gesendet!');
+            form.reset();
+        });
     </script>
 </body>
 </html>
