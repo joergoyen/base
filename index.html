@@ -1,13 +1,158 @@
-<html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Zahlen-Buchstaben-Puzzle</title>
     <style>
-body, h2 {font-family: Arial, Helvetica, sans-serif;
-font-size: 16px;}
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 400px;
+        }
+
+        .cell {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            user-select: none;
+        }
+
+        .cell:hover {
+            background-color: #e0e0e0;
+        }
+
+        .cell.clicked {
+            background-color: #90EE90;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .reset-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .reset-button:hover {
+            background-color: #45a049;
+        }
     </style>
-    <body>
-<div>
-    <h2>Hello</h2>
-</div>
+</head>
+<body>
+    <div class="game-container">
+        <div class="grid"></div>
+        <div class="message"></div>
+        <button class="reset-button" style="display: none;">Neu starten</button>
+    </div>
 
-    </body>
+    <script>
+        const numberToLetter = {
+            '0': 'N',
+            '1': 'E',
+            '2': 'Y',
+            '3': 'O',
+            '4': 'A',
+            '5': 'B',
+            '6': 'C',
+            '7': 'D',
+            '8': 'F',
+            '9': 'G'
+        };
+
+        const targetWord = 'OYEN';
+        let clickedCells = new Set();
+        let currentWord = '';
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function createGrid() {
+            const grid = document.querySelector('.grid');
+            const numbers = shuffleArray([...Array(10)].map((_, i) => i));
+            const fillerChars = shuffleArray([...Array(6)].map((_, i) => String.fromCharCode(65 + i)));
+            const allCells = [...numbers, ...fillerChars];
+            
+            grid.innerHTML = '';
+            shuffleArray(allCells).forEach(value => {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                cell.textContent = value;
+                cell.addEventListener('click', () => handleCellClick(cell, value));
+                grid.appendChild(cell);
+            });
+        }
+
+        function handleCellClick(cell, value) {
+            if (cell.classList.contains('clicked') || typeof value !== 'number') return;
+
+            const letter = numberToLetter[value];
+            cell.textContent = letter;
+            cell.classList.add('clicked');
+            clickedCells.add(cell);
+            currentWord += letter;
+
+            checkProgress();
+        }
+
+        function checkProgress() {
+            const message = document.querySelector('.message');
+            const resetButton = document.querySelector('.reset-button');
+
+            if (clickedCells.size >= 4) {
+                if (currentWord.includes(targetWord)) {
+                    message.textContent = 'Gratulation! Du hast das Puzzle gelöst!';
+                    message.style.color = 'green';
+                    resetButton.style.display = 'block';
+                } else {
+                    message.textContent = 'Leider falsch. Versuche es noch einmal!';
+                    message.style.color = 'red';
+                    resetButton.style.display = 'block';
+                }
+            }
+        }
+
+        function resetGame() {
+            clickedCells.clear();
+            currentWord = '';
+            const message = document.querySelector('.message');
+            const resetButton = document.querySelector('.reset-button');
+            message.textContent = '';
+            resetButton.style.display = 'none';
+            createGrid();
+        }
+
+        // Initialisierung
+        document.querySelector('.reset-button').addEventListener('click', resetGame);
+        createGrid();
+    </script>
+</body>
 </html>
