@@ -3,266 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sketch Mockup</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Zahlen-Buchstaben-Puzzle</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Architects Daughter', cursive;
-        }
-
-        body {
-            background: #f9f9f9;
-            line-height: 1.6;
-        }
-
-        .sketch-border {
-            position: relative;
-            border: 2px solid #666;
-            border-radius: 3px;
-        }
-
-        .sketch-border::after {
-            content: '';
-            position: absolute;
-            top: -8px;
-            left: -8px;
-            right: -8px;
-            bottom: -8px;
-            border: 2px solid #999;
-            border-radius: 5px;
-            z-index: -1;
-            transform: rotate(-0.5deg);
-        }
-
-        .header {
-            background: #fff;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            position: relative;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            color: #666;
-            transform: rotate(-1deg);
-        }
-
-        .hamburger {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transform: rotate(2deg);
-        }
-
-        .menu {
-            position: fixed;
-            right: -250px;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background: white;
-            transition: 0.3s;
-            padding-top: 4rem;
-            border-left: 2px solid #666;
-        }
-
-        .menu.active {
-            right: 0;
-        }
-
-        .menu a {
-            display: block;
-            padding: 1rem;
-            color: #666;
-            text-decoration: none;
-            border-bottom: 2px solid #eee;
-            transform: rotate(-0.5deg);
-        }
-
-        .content {
-            padding: 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 200px;
-            background: #fff;
-            margin: 1rem 0;
+        .game-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
+            font-family: Arial, sans-serif;
+            margin-top: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 400px;
+        }
+
+        .cell {
+            width: 80px;
+            height: 80px;
+            border: 2px solid #333;
+            display: flex;
             justify-content: center;
-            color: #999;
-            border: 2px dashed #666;
-        }
-
-        .hero-image::before {
-            content: '📷';
-            font-size: 3rem;
-            transform: rotate(-5deg);
-        }
-
-        .lorem-text {
-            background: 
-                repeating-linear-gradient(
-                    0deg,
-                    #666,
-                    #666 2px,
-                    transparent 2px,
-                    transparent 20px
-                );
-            height: 100px;
-            margin: 1rem 0;
-            transform: rotate(-0.2deg);
-        }
-
-        .contact-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-            transform: rotate(-0.5deg);
-        }
-
-        input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 2px dashed #666;
-            border-radius: 4px;
-            margin-top: 0.25rem;
-            font-size: 1rem;
-            background: #f9f9f9;
-        }
-
-        button {
-            background: #666;
-            color: white;
-            border: 2px solid #444;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            align-items: center;
+            font-size: 24px;
             cursor: pointer;
-            transform: rotate(1deg);
+            background-color: #f0f0f0;
+            user-select: none;
         }
 
-        .page {
-            display: none;
+        .cell:hover {
+            background-color: #e0e0e0;
         }
 
-        .page.active {
-            display: block;
+        .cell.clicked {
+            background-color: #90EE90;
         }
 
-        .sketch-box {
-            border: 2px solid #666;
-            padding: 1rem;
-            margin: 1rem 0;
-            position: relative;
-            transform: rotate(-0.3deg);
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
         }
 
-        .sketch-box::after {
-            content: '';
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            right: -5px;
-            bottom: -5px;
-            border: 2px solid #999;
-            z-index: -1;
+        .reset-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .scribble {
-            height: 10px;
-            background: 
-                repeating-linear-gradient(
-                    45deg,
-                    #666,
-                    #666 2px,
-                    transparent 2px,
-                    transparent 6px
-                );
-            margin: 1rem 0;
+        .reset-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="header sketch-border">
-        <h1>✏️ Sketch Mockup</h1>
-        <div class="hamburger">☰</div>
+    <div class="game-container">
+        <div class="grid"></div>
+        <div class="message"></div>
+        <button class="reset-button" style="display: none;">Neu starten</button>
     </div>
 
-    <nav class="menu">
-        <a href="#" data-page="home">⌂ Home</a>
-        <a href="#" data-page="impressum">📝 Impressum</a>
-        <a href="#" data-page="kontakt">✉️ Kontakt</a>
-    </nav>
-
-    <main class="content">
-        <div id="home" class="page active">
-            <div class="hero-image sketch-border"></div>
-            <div class="lorem-text"></div>
-            <div class="scribble"></div>
-        </div>
-
-        <div id="impressum" class="page">
-            <div class="sketch-box">
-                <div class="lorem-text" style="height: 50px"></div>
-                <div class="scribble"></div>
-                <div class="lorem-text" style="height: 30px"></div>
-                <div class="scribble"></div>
-                <div class="lorem-text" style="height: 40px"></div>
-            </div>
-        </div>
-
-        <div id="kontakt" class="page">
-            <div class="contact-form sketch-border">
-                <h2>✉️ Kontakt</h2>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" placeholder="╭━━━━━━━━━━╮">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-Mail:</label>
-                    <input type="email" id="email" placeholder="╭━━━━━━━━━━╮">
-                </div>
-                <button type="submit">→ Senden</button>
-            </div>
-        </div>
-    </main>
-
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const menu = document.querySelector('.menu');
-        const menuLinks = document.querySelectorAll('.menu a');
+        const numberToLetter = {
+            '0': 'N',
+            '1': 'E',
+            '2': 'Y',
+            '3': 'O',
+            '4': 'A',
+            '5': 'B',
+            '6': 'C',
+            '7': 'D',
+            '8': 'F',
+            '9': 'G'
+        };
 
-        hamburger.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
+        const targetWord = 'OYEN';
+        let clickedCells = new Set();
+        let currentWord = '';
 
-        menuLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pageId = link.getAttribute('data-page');
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-                document.getElementById(pageId).classList.add('active');
-                menu.classList.remove('active');
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function createGrid() {
+            const grid = document.querySelector('.grid');
+            const numbers = shuffleArray([...Array(10)].map((_, i) => i));
+            const fillerChars = shuffleArray([...Array(6)].map((_, i) => String.fromCharCode(65 + i)));
+            const allCells = [...numbers, ...fillerChars];
+            
+            grid.innerHTML = '';
+            shuffleArray(allCells).forEach(value => {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                cell.textContent = value;
+                cell.addEventListener('click', () => handleCellClick(cell, value));
+                grid.appendChild(cell);
             });
-        });
+        }
+
+        function handleCellClick(cell, value) {
+            if (cell.classList.contains('clicked') || typeof value !== 'number') return;
+
+            const letter = numberToLetter[value];
+            cell.textContent = letter;
+            cell.classList.add('clicked');
+            clickedCells.add(cell);
+            currentWord += letter;
+
+            checkProgress();
+        }
+
+        function checkProgress() {
+            const message = document.querySelector('.message');
+            const resetButton = document.querySelector('.reset-button');
+
+            if (clickedCells.size >= 4) {
+                if (currentWord.includes(targetWord)) {
+                    message.textContent = 'Gratulation! Du hast das Puzzle gelöst!';
+                    message.style.color = 'green';
+                    resetButton.style.display = 'block';
+                } else {
+                    message.textContent = 'Leider falsch. Versuche es noch einmal!';
+                    message.style.color = 'red';
+                    resetButton.style.display = 'block';
+                }
+            }
+        }
+
+        function resetGame() {
+            clickedCells.clear();
+            currentWord = '';
+            const message = document.querySelector('.message');
+            const resetButton = document.querySelector('.reset-button');
+            message.textContent = '';
+            resetButton.style.display = 'none';
+            createGrid();
+        }
+
+        // Initialisierung
+        document.querySelector('.reset-button').addEventListener('click', resetGame);
+        createGrid();
     </script>
 </body>
 </html>
