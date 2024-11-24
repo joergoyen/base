@@ -3,35 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#4A90E2">
-    <title>PWA Mockup</title>
-    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiUFdBIE1vY2t1cCIsInNob3J0X25hbWUiOiJQV0EiLCJzdGFydF91cmwiOiIvIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZmZiIsInRoZW1lX2NvbG9yIjoiIzRBOTBFMiJ9">
+    <title>Sketch Mockup</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Architects Daughter', cursive;
         }
 
         body {
-            background-color: #f5f5f5;
+            background: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        .sketch-border {
+            position: relative;
+            border: 2px solid #666;
+            border-radius: 3px;
+        }
+
+        .sketch-border::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 2px solid #999;
+            border-radius: 5px;
+            z-index: -1;
+            transform: rotate(-0.5deg);
         }
 
         .header {
-            background: #4A90E2;
+            background: #fff;
             padding: 1rem;
-            color: white;
+            margin-bottom: 2rem;
             position: relative;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #666;
+            transform: rotate(-1deg);
         }
 
         .hamburger {
             position: absolute;
             right: 1rem;
             top: 1rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            z-index: 100;
+            transform: rotate(2deg);
         }
 
         .menu {
@@ -42,8 +70,8 @@
             height: 100%;
             background: white;
             transition: 0.3s;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
             padding-top: 4rem;
+            border-left: 2px solid #666;
         }
 
         .menu.active {
@@ -53,13 +81,10 @@
         .menu a {
             display: block;
             padding: 1rem;
-            color: #333;
+            color: #666;
             text-decoration: none;
-            border-bottom: 1px solid #eee;
-        }
-
-        .menu a:hover {
-            background: #f5f5f5;
+            border-bottom: 2px solid #eee;
+            transform: rotate(-0.5deg);
         }
 
         .content {
@@ -71,44 +96,65 @@
         .hero-image {
             width: 100%;
             height: 200px;
-            background: #ddd;
+            background: #fff;
             margin: 1rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #999;
+            border: 2px dashed #666;
+        }
+
+        .hero-image::before {
+            content: '📷';
+            font-size: 3rem;
+            transform: rotate(-5deg);
+        }
+
+        .lorem-text {
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    #666,
+                    #666 2px,
+                    transparent 2px,
+                    transparent 20px
+                );
+            height: 100px;
+            margin: 1rem 0;
+            transform: rotate(-0.2deg);
         }
 
         .contact-form {
             background: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 2rem;
         }
 
         .form-group {
             margin-bottom: 1rem;
+            transform: rotate(-0.5deg);
         }
 
         input {
             width: 100%;
             padding: 0.5rem;
-            border: 1px solid #ddd;
+            border: 2px dashed #666;
             border-radius: 4px;
             margin-top: 0.25rem;
+            font-size: 1rem;
+            background: #f9f9f9;
         }
 
         button {
-            background: #4A90E2;
+            background: #666;
             color: white;
-            border: none;
+            border: 2px solid #444;
             padding: 0.5rem 1rem;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        button:hover {
-            background: #357ABD;
+            transform: rotate(1deg);
         }
 
         .page {
@@ -118,61 +164,86 @@
         .page.active {
             display: block;
         }
+
+        .sketch-box {
+            border: 2px solid #666;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+            transform: rotate(-0.3deg);
+        }
+
+        .sketch-box::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #999;
+            z-index: -1;
+        }
+
+        .scribble {
+            height: 10px;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    #666,
+                    #666 2px,
+                    transparent 2px,
+                    transparent 6px
+                );
+            margin: 1rem 0;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>PWA Mockup</h1>
+    <div class="header sketch-border">
+        <h1>✏️ Sketch Mockup</h1>
         <div class="hamburger">☰</div>
     </div>
 
     <nav class="menu">
-        <a href="#" data-page="home">Home</a>
-        <a href="#" data-page="impressum">Impressum</a>
-        <a href="#" data-page="kontakt">Kontakt</a>
+        <a href="#" data-page="home">⌂ Home</a>
+        <a href="#" data-page="impressum">📝 Impressum</a>
+        <a href="#" data-page="kontakt">✉️ Kontakt</a>
     </nav>
 
     <main class="content">
         <div id="home" class="page active">
-            <div class="hero-image">Platzhalterbild</div>
-            <p>Willkommen auf unserer Mockup-Seite! Dies ist ein Beispieltext, der zeigt, wie der Inhalt auf der Seite aussehen könnte. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="hero-image sketch-border"></div>
+            <div class="lorem-text"></div>
+            <div class="scribble"></div>
         </div>
 
         <div id="impressum" class="page">
-            <h2>Impressum</h2>
-            <p>Angaben gemäß § 5 TMG</p>
-            <p>Max Mustermann<br>
-            Musterstraße 123<br>
-            12345 Musterstadt</p>
-            <p>Telefon: +49 (0) 123 44 55 66<br>
-            E-Mail: mustermann@beispiel.de</p>
-            <h3>Haftungsausschluss</h3>
-            <p>Die Inhalte dieser Seiten wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.</p>
+            <div class="sketch-box">
+                <div class="lorem-text" style="height: 50px"></div>
+                <div class="scribble"></div>
+                <div class="lorem-text" style="height: 30px"></div>
+                <div class="scribble"></div>
+                <div class="lorem-text" style="height: 40px"></div>
+            </div>
         </div>
 
         <div id="kontakt" class="page">
-            <div class="contact-form">
-                <h2>Kontakt</h2>
+            <div class="contact-form sketch-border">
+                <h2>✉️ Kontakt</h2>
                 <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" placeholder="╭━━━━━━━━━━╮">
                 </div>
                 <div class="form-group">
                     <label for="email">E-Mail:</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" placeholder="╭━━━━━━━━━━╮">
                 </div>
-                <button type="submit">Senden</button>
+                <button type="submit">→ Senden</button>
             </div>
         </div>
     </main>
 
     <script>
-        // PWA Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js').catch(console.error);
-        }
-
-        // Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const menu = document.querySelector('.menu');
         const menuLinks = document.querySelectorAll('.menu a');
@@ -181,7 +252,6 @@
             menu.classList.toggle('active');
         });
 
-        // Page Navigation
         menuLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -192,14 +262,6 @@
                 document.getElementById(pageId).classList.add('active');
                 menu.classList.remove('active');
             });
-        });
-
-        // Simple Form Handler
-        const form = document.querySelector('.contact-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Formular wurde gesendet!');
-            form.reset();
         });
     </script>
 </body>
