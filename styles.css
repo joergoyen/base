@@ -1,0 +1,126 @@
+/* Allgemeine Einstellungen */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.quiz-container {
+  text-align: left; /* Alle Texte linksbündig */
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+}
+
+.quiz-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.question {
+  margin: 20px 0;
+}
+
+/* Antwort-Buttons: 2-spaltiges Layout mit voller Breite */
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch; /* Dehnt die Paare auf die Breite des Containers aus */
+}
+
+.answer-pair {
+  display: flex;
+  gap: 10px; /* Abstand zwischen den beiden Buttons */
+  width: 100%; /* Volle Breite des Containers */
+}
+
+.answer {
+  flex: 1; /* Jeder Button nimmt den gleichen Platz ein */
+  padding: 15px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  text-align: left; /* Text linksbündig */
+}
+
+/* Individuelle Farben für Buttons basierend auf dem Bild */
+.answer-a {
+  background: #336699; /* Blau (Gebäude) */
+}
+
+.answer-a:hover {
+  background: #274c7e;
+}
+
+.answer-b {
+  background: #FF9933; /* Orange (Flaggen) */
+}
+
+.answer-b:hover {
+  background: #cc7a29;
+}
+
+.answer-c {
+  background: #6e6e6e; /* Grau (Straße) */
+}
+
+.answer-c:hover {
+  background: #545454;
+}
+
+.answer-d {
+  background: #8B0000; /* Bordeauxrot (Auto) */
+}
+
+.answer-d:hover {
+  background: #690000;
+}
+
+/* Ergebnis-Anzeige */
+.hidden {
+  display: none;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Call-to-Action Styling */
+.cta {
+  margin-top: 20px;
+  text-align: left; /* Call-to-Action Text linksbündig */
+}
+
+.cta p {
+  margin: 0 0 10px;
+}
+
+.cta a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta a:hover {
+  background: #0056b3;
+}
