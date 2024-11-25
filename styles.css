@@ -11,7 +11,7 @@ body {
 }
 
 .quiz-container {
-  margin-top: env(safe-area-inset-top, 20px); /* Dynamischer Abstand für iPhones mit Notch */
+  margin-top: env(safe-area-inset-top, 25px); /* Dynamischer Abstand für iPhones mit Notch */
   padding: 20px;
   background: #fff;
   border-radius: 8px;
