@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectedAnswer === "A") {
         message =
           "🌊 Du bist ein Flow-Liebhaber! Mit KI arbeitest Du leicht und effizient, ohne die Kontrolle zu verlieren.";
-        cta.classList.remove("hidden"); // CTA sichtbar machen
+        cta.classList.remove("hidden"); // CTA sichtbar machen 
       } else if (selectedAnswer === "B") {
         message =
           "🔧 Verantwortung und System sind Deine Stärken. Mit KI setzt Du auf klare Prozesse, um Ziele zu erreichen.";
