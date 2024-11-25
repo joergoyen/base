@@ -14,22 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
       const selectedAnswer = answer.getAttribute("data-answer");
       let message;
 
-      // Logik für die Antworten
+      // Logik für die Antworten mit Emojis
       if (selectedAnswer === "A") {
         message =
-          "Du bist ein Flow-Liebhaber! Mit KI arbeitest Du leicht und effizient, ohne die Kontrolle zu verlieren.";
+          "🌊 Du bist ein Flow-Liebhaber! Mit KI arbeitest Du leicht und effizient, ohne die Kontrolle zu verlieren.";
         cta.classList.remove("hidden"); // CTA sichtbar machen
       } else if (selectedAnswer === "B") {
         message =
-          "Verantwortung und System sind Deine Stärken. Mit KI setzt Du auf klare Prozesse, um Ziele zu erreichen.";
+          "🔧 Verantwortung und System sind Deine Stärken. Mit KI setzt Du auf klare Prozesse, um Ziele zu erreichen.";
         cta.classList.remove("hidden"); // CTA sichtbar machen
       } else if (selectedAnswer === "C") {
         message =
-          "Kreativität steht für Dich im Vordergrund. Mit Bend, Break, Build formst Du innovative Ideen.";
+          "🎨 Kreativität steht für Dich im Vordergrund. Mit Bend, Break, Build formst Du innovative Ideen.";
         cta.classList.remove("hidden"); // CTA sichtbar machen
       } else if (selectedAnswer === "D") {
         message =
-          "Es ist okay, wenn Du Verantwortung im digitalen Raum (noch) nicht übernehmen willst. Jeder Schritt braucht seinen Moment.";
+          "🚫 Es ist okay, wenn Du Verantwortung im digitalen Raum (noch) nicht übernehmen willst. Jeder Schritt braucht seinen Moment.";
         cta.classList.add("hidden"); // CTA versteckt halten
       }
 
