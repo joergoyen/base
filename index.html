@@ -5,42 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KI-Concierge Quiz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="quiz-container">
     <h1>Gemeinsam in Möglichkeiten denken</h1>
     
-    <img src="shared-space_eine_momentaufnahme_aus_2014.webp" alt="Fahrradfahrer in der Stadt" class="quiz-image">
-    
-    <p>Wie gehst Du mit Verantwortung im digitalen Raum um? Bild: <a href="https://nacto.org" target="_blank">nacto.org</a></p>
+    <div class="image-wrapper">
+  <img src="shared-space_eine_momentaufnahme_aus_2014.webp" alt="Fahrradfahrer in der Stadt" class="quiz-image">
+  <p class="image-caption">Wie gehst Du mit Verantwortung im digitalen Raum um? Bild: <a href="https://nacto.org" target="_blank">nacto.org</a></p>
+</div>
     
     <div class="question">
       <p><strong>Wähle Deine Antwort:</strong></p>
       <div class="answers">
-  <div class="answer-pair">
-    <button class="answer answer-a" data-answer="A">
-      <span class="emoji">🌊</span> Ich gehe mit KI in den Flow – einfach und effizient.
-    </button>
-    <button class="answer answer-b" data-answer="B">
-      <span class="emoji">🔧</span> Verantwortung heißt für mich, KI mit System zu nutzen.
-    </button>
-  </div>
-  <div class="answer-pair">
-    <button class="answer answer-c" data-answer="C">
-      <span class="emoji">🎨</span> Kreativität durch KI – mit Bend, Break, Build.
-    </button>
-    <button class="answer answer-d" data-answer="D">
-      <span class="emoji">🚫</span> Verantwortung im digitalen Raum teilen? Noch nicht? (Noch) kein Problem.
-    </button>
-  </div>
-</div>
+        <div class="answer-pair">
+          <button class="answer answer-a" data-answer="A">
+            <span class="emoji">🌊</span>
+            <span class="answer-text">Ich gehe mit KI in den Flow – einfach und effizient.</span>
+          </button>
+          <button class="answer answer-b" data-answer="B">
+            <span class="emoji">🔧</span>
+            <span class="answer-text">Verantwortung heißt für mich, KI mit System zu nutzen.</span>
+          </button>
+        </div>
+        <div class="answer-pair">
+          <button class="answer answer-c" data-answer="C">
+            <span class="emoji">🎨</span>
+            <span class="answer-text">Kreativität durch KI – mit Bend, Break, Build.</span>
+          </button>
+          <button class="answer answer-d" data-answer="D">
+            <span class="emoji">🚫</span>
+            <span class="answer-text">Verantwortung im digitalen Raum teilen? Noch nicht? (Noch) kein Problem.</span>
+          </button>
+        </div>
+      </div>
+    </div>
     <div class="result hidden">
       <p class="result-text"></p>
     </div>
-    <!-- Call-to-Action (wird nur nach A, B, oder C sichtbar) -->
     <div class="cta hidden">
       <p>Bist du Bereit, Deine KI-Expertise auf das nächste Level zu bringen? Sichere Dir Deinen persönlichen 1:1 Remote-Kurs – 30 Minuten voller Inspiration und Wissen für nur 42 €.</p>
       <a href="https://calendly.com/joergoyen/ki-concierge-smarte-tools-klare-ergebnisse">Jetzt Termin buchen</a>
