@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cta.classList.remove("hidden"); // CTA sichtbar machen
       } else if (selectedAnswer === "D") {
         message =
-          "🚫 Es ist okay, wenn Du Verantwortung im digitalen Raum (noch) nicht übernehmen willst. Jeder Schritt braucht seinen Moment.";
+          "🚫 Fang an, die Möglichkeiten von KI zu verstehen. Schritt für Schritt. Sobald du bereit bist, entwickeln wir gemeinsam einen Plan – klar, einfach und umsetzbar.";
         cta.classList.add("hidden"); // CTA versteckt halten
       }
 
