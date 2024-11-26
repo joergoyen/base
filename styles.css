@@ -1,24 +1,24 @@
 /* Allgemeine Einstellungen */
 body {
-  font-family: 'Inter',Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Inhalte nach oben ausrichten */
+  align-items: flex-start;
   height: 100vh;
   background-color: #f5f5f5;
 }
 
 .quiz-container {
-  margin-top: env(safe-area-inset-top, 25px); /* Dynamischer Abstand für iPhones mit Notch */
-  padding: 20px;
-  background: #fff;
+  margin-top: env(safe-area-inset-top, 25px);
+  padding: 25px;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   max-width: 600px;
   width: 90%;
-  text-align: left; /* Texte bleiben linksbündig */
+  text-align: left;
 }
 
 .quiz-image {
@@ -28,72 +28,80 @@ body {
 }
 
 h1 {
-  font-size: 24px;
-  margin-top: 0; /* Standardabstand oben entfernen */
-  margin-bottom: 20px; /* Abstand nach unten */
-  padding-top: env(safe-area-inset-top, 15px); /* Zusätzlicher Puffer für iPhones */
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-top: env(safe-area-inset-top, 15px);
 }
 
 .question {
-  margin: 20px 0;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 25px 0;
+  color: #333333;
 }
 
-/* Antwort-Buttons: 2-spaltiges Layout mit voller Breite */
+/* Antwort-Bereich */
 .answers {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: stretch; /* Dehnt die Paare auf die Breite des Containers aus */
+  gap: 25px;
+  align-items: stretch;
 }
 
 .answer-pair {
   display: flex;
-  gap: 10px; /* Abstand zwischen den beiden Buttons */
-  width: 100%; /* Volle Breite des Containers */
+  gap: 15px;
+  width: 100%;
 }
 
 .answer {
-  flex: 1; /* Jeder Button nimmt den gleichen Platz ein */
-  padding: 15px 20px;
-  font-size: 16px;
+  flex: 1;
+  padding: 20px 25px;
+  font-size: 17px;
+  font-weight: 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   color: white;
-  text-align: left; /* Text linksbündig */
+  text-align: left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
-/* Individuelle Farben für Buttons basierend auf dem Bild */
+/* Button-Farben und Hover-Effekte */
 .answer-a {
-  background: #336699; /* Blau (Gebäude) */
+  background: #2c5788;
 }
 
 .answer-a:hover {
-  background: #274c7e;
+  background: #1f3f66;
 }
 
 .answer-b {
-  background: #FF9933; /* Orange (Flaggen) */
+  background: #e67e00;
 }
 
 .answer-b:hover {
-  background: #cc7a29;
+  background: #cc7000;
 }
 
 .answer-c {
-  background: #6e6e6e; /* Grau (Straße) */
+  background: #575757;
 }
 
 .answer-c:hover {
-  background: #545454;
+  background: #404040;
 }
 
 .answer-d {
-  background: #8B0000; /* Bordeauxrot (Auto) */
+  background: #7a0000;
 }
 
 .answer-d:hover {
-  background: #690000;
+  background: #5c0000;
 }
 
 /* Emoji-Styling */
@@ -101,12 +109,13 @@ h1 {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%; /* Kreisform */
-  background-color: white; /* Weißer Hintergrund */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: white;
   font-size: 18px;
-  margin-right: 10px; /* Abstand zum Text */
+  margin-right: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Ergebnis-Anzeige */
@@ -122,17 +131,19 @@ h1 {
 
 /* Call-to-Action Styling */
 .cta {
-  margin-top: 20px;
-  text-align: left; /* Text bleibt linksbündig */
+  margin-top: 25px;
+  text-align: left;
 }
 
 .cta p {
-  margin: 0 0 10px; /* Abstand nach unten */
+  margin: 0 0 15px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .cta a {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: #007BFF;
   color: white;
   text-decoration: none;
@@ -140,14 +151,37 @@ h1 {
   font-size: 16px;
   font-weight: bold;
   transition: background 0.3s;
-  white-space: nowrap; /* Verhindert Zeilenumbruch im Button */
-  margin-top: 10px; /* Abstand zum Text */
+  white-space: nowrap;
+  margin-top: 10px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .cta a:hover {
   background: #0056b3;
 }
 
-.cta a:hover {
-  background: #0056b3;
+/* Responsive Anpassungen */
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .answer-pair {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .answer {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .question {
+    font-size: 16px;
+  }
 }
